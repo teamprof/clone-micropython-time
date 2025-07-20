@@ -13,10 +13,10 @@ WEEKDAY_NAMES = ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
 
 ABBREVIATED_WEEKDAY_NAMES = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
 
-MONTH_NAMES = ('January', 'February', 'March', 'April', 'May', 'June', 'July'
+MONTH_NAMES = ('January', 'February', 'March', 'April', 'May', 'June', 'July',
                'August', 'September', 'October', 'November', 'December')
 
-ABBREVIATED_MONTH_NAMES = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'
+ABBREVIATED_MONTH_NAMES = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
                            'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
 
 # January 1, 2000 was a saturday.
@@ -320,10 +320,10 @@ def directive_to_struct_time_item(directive, value):
         return STRUCT_TIME.TM_MON, value
     elif directive == DIRECTIVES.ABBREV_MONTH_NAME:
         # Return ABBREV_MONTH_NAME as TM_MON.
-        return STRUCT_TIME.TM_MON, ABBREVIATED_MONTH_NAMES.index(value)
+        return STRUCT_TIME.TM_MON, ABBREVIATED_MONTH_NAMES.index(value) + 1
     elif directive == DIRECTIVES.MONTH_NAME:
         # Return MONTH_NAME as TM_MON.
-        return STRUCT_TIME.TM_MON, MONTH_NAMES.index(value)
+        return STRUCT_TIME.TM_MON, MONTH_NAMES.index(value) + 1
     elif directive == DIRECTIVES.DAY_OF_MONTH:
         # Return DAY_OF_MONTH as TM_MDAY
         return STRUCT_TIME.TM_MDAY, value
